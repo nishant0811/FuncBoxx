@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './assets/css/Navbar.css'
 import App from './components/App';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import $ from 'jquery';
 let headers = new Headers();
 headers.append('Content-Type', 'application/json');
@@ -26,7 +32,11 @@ $(document).ready(function(){
 });
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Route path="/">
+        <App />
+      </Route>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
