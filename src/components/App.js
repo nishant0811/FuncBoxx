@@ -8,52 +8,59 @@ function App() {
   const [css, setCss] = useLocalStorage('css', '')
   const [js, setJs] = useLocalStorage('js', '')
   const [srcDoc, setSrcDoc] = useState('')
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setSrcDoc(`
-      <html>
-      <head>
-      <title>
-      </title>
-      </head>
-      <script>
-      function fill(){
-        
-       var i=document.body.style.backgroundImage = "url(${space})";
-       i.height = 156;
-    i.width = 156;
-      };
-      text1='hello';
-      </script>
-      <script>
-          function printer(text1){
-            fill();
-            document.getElementById("demo").innerHTML = text1;
-          }
-          </script>
-      <body style="background-image: url(${space}); no-repeat cover">
-      <div>
-          <p id="demo">cute</p>
-          <pre> 
-          </pre>
-          <script>${js}</script> 
-        </div>
-      </body>
-      </html>
-      `)
-//var hiddenElement = document.getElementById('test1');
-//hiddenElement.href = 'data:attachment/text,' + encodeURI([html]);
-//hiddenElement.target = '_blank';
-//hiddenElement.download = 'index.html';
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       setSrcDoc(`
+//       <html>
+//       <head>
+//       <title>
+//       </title>
+//       <link rel="stylesheet" href="dyteapp/sstyles.css">
+//       </head>
+//       <body>
+//       <div id="main__body">
+//
+//       </div>
+//       <script src="dyteapp/scripts.js"></script>
+//       <script>${js}</script>
+//       </body>
+//       </html>
+//       `)
+// //var hiddenElement = document.getElementById('test1');
+// //hiddenElement.href = 'data:attachment/text,' + encodeURI([html]);
+// //hiddenElement.target = '_blank';
+// //hiddenElement.download = 'index.html';
+//
+//     }, 250)
+//
+//     return () => clearTimeout(timeout)
+//   }, [js])
 
-    }, 250)
-    return () => clearTimeout(timeout)
-  }, [js])
+
+  function updateCode(){
+    setSrcDoc(`
+    <html>
+    <head>
+    <title>
+    </title>
+    <link rel="stylesheet" href="dyteapp/sstyles.css">
+    </head>
+    <body>
+    <div id="main__body">
+
+    </div>
+    <script src="dyteapp/scripts.js"></script>
+    <script>${js}</script>
+    </body>
+    </html>
+    `)
+  }
   return (
     <>
-    
+
     <div class="root">
     <Navbar/>
+      <button onClick={updateCode} className="compile-button" >Run</button>
       <div className="top-pane">
       <Editor
           language="javascript"

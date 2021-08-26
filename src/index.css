@@ -187,3 +187,17 @@ iframe{border-radius: 30px;}
   height: 100px;
   width:100px;
 }
+
+
+.compile-button{
+  padding: 8px 16px;
+  border-radius: 6px;
+  border : 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.compile-button:active , .compile-button:focus{
+  outline: 0;
+  border:0;  
+}
