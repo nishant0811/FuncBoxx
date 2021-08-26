@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './assets/css/Navbar.css'
 import App from './components/App';
+import missionMars from './components/MissionMars/MissionMars';
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,6 +36,9 @@ ReactDOM.render(
     <Router>
       <Route path="/">
         <App />
+      </Route>
+      <Route path="/missionMars">
+        <missionMars />
       </Route>
     </Router>
   </React.StrictMode>,
