@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Editor from '../Editor'
-import useLocalStorage from '../../hooks/useLocalStorage'
-import space from '../../components/spaceship.png'
-import Navbar from '../Navbar'
+import Editor from '../Editor';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import space from '../../components/spaceship.png';
+import Navbar from '../Navbar';
 
-export default function MissionMars() {
+const MissionMars = () => {
     const [html, setHtml] = useLocalStorage('html', '')
     const [css, setCss] = useLocalStorage('css', '')
     const [js, setJs] = useLocalStorage('js', '')
@@ -55,3 +55,5 @@ export default function MissionMars() {
     </div>
     )
 }
+
+export default MissionMars;
