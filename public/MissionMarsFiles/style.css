@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+.GamePad {
+  width: 380px;
+  height: 500px;
+  border: solid black 1px;
+}
+.grid {
+  height: 320px;
+  width: 315px;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: auto;
+}
+
+.grid div {
+  height: 20px;
+  width: 20px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.rocks {
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.dust {
+  background-color: orange;
+}
+
+.dirt {
+  background-color: brown;
+}
+
+.rover {
+  background-image: url('arrow.svg');
+  background-position: center;
+  transition: 0.2s background-image;
+}
+
+.up {
+  transform: rotate(0);
+}
+
+.down {
+  transform: rotate(180deg);
+}
+
+.scanned {
+  background-color: green;
+  border-radius: 10px;
+}
+
+.scanning {
+  animation: 0.75s blink;
+  animation-iteration-count: infinite;
+}
+
+.upRotate {
+  transform: rotate(0deg);
+}
+
+.downRotate {
+  transform: rotate(180deg);
+}
+
+.rightRotate {
+  transform: rotate(90deg);
+}
+
+.leftRotate {
+  transform: rotate(-90deg);
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .notransform {
+  transform: none;
+} */

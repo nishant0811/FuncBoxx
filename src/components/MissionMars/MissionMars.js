@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Editor from '../Editor';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import space from '../../components/spaceship.png';
 import Navbar from '../Navbar';
 
 const MissionMars = () => {
-    const [html, setHtml] = useLocalStorage('html', '')
-    const [css, setCss] = useLocalStorage('css', '')
     const [js, setJs] = useLocalStorage('js', '')
     const [srcDoc, setSrcDoc] = useState('')
 
@@ -14,14 +11,15 @@ const MissionMars = () => {
         setSrcDoc(`
             <html>
             <head>
-            <title>
-            </title>
+            <title></title>
             <link rel="stylesheet" href="dyteapp/sstyles.css">
+            <link rel="stylesheet" href="dyteapp/MissionMarsFiles/styles.css">
             </head>
             <body>
             <div id="main__body">
 
             </div>
+            <script src="dyteapp/MissionMarsFiles/scripts.js"></script>
             <script src="dyteapp/scripts.js"></script>
             <script>${js}</script>
             </body>
