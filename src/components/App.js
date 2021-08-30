@@ -11,6 +11,7 @@ import MissionMars from '../components/MissionMars/MissionMars';
 import Login from '../components/LoginAndSignup/Login';
 import Signup from '../components/LoginAndSignup/Signup';
 import CodeEditor from '../components/CodeEditor/CodeEditor';
+import FuncBoxx from './FuncBoxx/FuncBoxx';
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup}/>
           <Route exact path="/CodeEditor" component={CodeEditor}/>
+          <Route exact path="/FuncBoxx" component={FuncBoxx}/>
         </Switch>
       </div>
     </Router>

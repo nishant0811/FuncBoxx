@@ -84,7 +84,7 @@ export default function Login() {
                 <div className="login__signup">
                     <div className="title">
                     <h1 className="active">
-                        <span>Login</span>
+                        <span className="Login_Signup_link">Login</span>
                     </h1>
                     <h1 className>
                         <Link to="/Signup">Signup</Link>

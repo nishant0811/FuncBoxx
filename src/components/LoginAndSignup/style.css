@@ -44,7 +44,7 @@
   transition: 0.5s;
 }
 
-span {
+.Login_Signup_link {
   color: #3d4372;
   text-decoration: none;
 }
