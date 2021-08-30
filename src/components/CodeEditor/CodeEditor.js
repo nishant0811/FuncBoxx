@@ -15,13 +15,13 @@ export default function CodeEditor() {
         <head>
         <title>
         </title>
-        <link rel="stylesheet" href="dyteapp/sstyles.css">
+        <link rel="stylesheet" href="FuncBoxx/sstyles.css">
         </head>
         <body>
         <div id="main__body">
 
         </div>
-        <script src="dyteapp/scripts.js"></script>
+        <script src="FuncBoxx/scripts.js"></script>
         <script>${js}</script>
         </body>
         </html>

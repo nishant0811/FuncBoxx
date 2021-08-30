@@ -142,7 +142,7 @@ document.body.style.overflow = "hidden";
 
 function fillBackground(color) {
   color = color || "#c4c4c4";
-  document.body.style.backgroundColor = color;
+  document.body.style.backgroundColor = color; 
 }
 
 
