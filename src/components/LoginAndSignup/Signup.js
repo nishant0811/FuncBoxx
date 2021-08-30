@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import './style.css'
-import Navbar from '../Navbar'
+import Navbar from '../Navbar/Navbar'
 import bg from './assets/loginBg.svg'
 
 export default function Signup() {

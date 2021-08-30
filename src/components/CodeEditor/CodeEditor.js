@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Editor from '../Editor'
 import useLocalStorage from '../../hooks/useLocalStorage'
-import Navbar from '../Navbar'
+import Navbar from '../Navbar/Navbar'
 
 export default function CodeEditor() {
     const [js, setJs] = useLocalStorage('js', '')
