@@ -140,6 +140,12 @@ function removeImageAnimation(details){
 
 document.body.style.overflow = "hidden";
 
+function fillBackground(color) {
+  color = color || "#c4c4c4";
+  document.body.style.backgroundColor = color;
+}
+
+
 // Function for creating text elements
 function text( text, size, color, top, left, fontFamily, fontWeight ) {
     text = text || "Hello"
@@ -155,7 +161,7 @@ function text( text, size, color, top, left, fontFamily, fontWeight ) {
     para.innerHTML = text;
     para.style.color = color;
     para.style.fontSize  = size+"px";
-    para.style.position = "absolute";
+    para.style.position = "relative";
     para.style.top = top+"px";
     para.style.left = left+"px";
     para.style.fontFamily = fontFamily;

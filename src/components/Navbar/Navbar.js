@@ -42,7 +42,7 @@ export default function Navbar() {
                     <div className="option active">
                     <a href="#">
                         <img src={login} alt="login" /><br />
-                        <Link to="/Login">Login/Sign UP</Link>
+                        <Link to="/Login">Login / Signup</Link>
                     </a>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 
-import MissionMars from '../components/missionMars/MissionMars';
+import MissionMars from '../components/MissionMars/MissionMars';
 import Login from '../components/LoginAndSignup/Login';
 import Signup from '../components/LoginAndSignup/Signup';
 import CodeEditor from '../components/CodeEditor/CodeEditor';

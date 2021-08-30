@@ -42,6 +42,14 @@ export default function CodeEditor() {
                 <div className="frame_container">
                     <div className='phone'>
                         <Frame srcDoc={srcDoc}/>
+                        {/* <iframe
+                            srcDoc={srcDoc}
+                            title="output"
+                            sandbox="allow-scripts"
+                            frameBorder="0"
+                            width="100%"
+                            height="100%"
+                        /> */}
                     </div>
                 </div>
             </div>
