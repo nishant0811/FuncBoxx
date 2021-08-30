@@ -1,81 +1,30 @@
 import React, { useState } from 'react';
-import Editor from './Editor'
-import useLocalStorage from '../hooks/useLocalStorage'
-// import space from '../components/spaceship.png'
-import Navbar from '../components/Navbar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
+import MissionMars from '../components/missionMars/MissionMars';
+import Login from '../components/LoginAndSignup/Login';
+import Signup from '../components/LoginAndSignup/Signup';
+import CodeEditor from '../components/CodeEditor/CodeEditor';
+
 function App() {
-  const [js, setJs] = useLocalStorage('js', '')
-  const [srcDoc, setSrcDoc] = useState('')
-//   useEffect(() => {
-//     const timeout = setTimeout(() => {
-//       setSrcDoc(`
-//       <html>
-//       <head>
-//       <title>
-//       </title>
-//       <link rel="stylesheet" href="dyteapp/sstyles.css">
-//       </head>
-//       <body>
-//       <div id="main__body">
-//
-//       </div>
-//       <script src="dyteapp/scripts.js"></script>
-//       <script>${js}</script>
-//       </body>
-//       </html>
-//       `)
-// //var hiddenElement = document.getElementById('test1');
-// //hiddenElement.href = 'data:attachment/text,' + encodeURI([html]);
-// //hiddenElement.target = '_blank';
-// //hiddenElement.download = 'index.html';
-//
-//     }, 250)
-//
-//     return () => clearTimeout(timeout)
-//   }, [js])
-
-
-  function updateCode(){
-    setSrcDoc(`
-      <html>
-      <head>
-      <title>
-      </title>
-      <link rel="stylesheet" href="dyteapp/sstyles.css">
-      </head>
-      <body>
-      <div id="main__body">
-
-      </div>
-      <script src="dyteapp/scripts.js"></script>
-      <script>${js}</script>
-      </body>
-      </html>
-    `)
-  }
+  
   return (
-    <div class="root">
-    <Navbar/>
-      <button onClick={updateCode} className="compile-button" >Run</button>
-      <div className="top-pane">
-        <Editor
-            language="javascript"
-            displayName="JS"
-            value={js}
-            onChange={setJs}
-          />
-        <div class='phone'>
-          <iframe
-            srcDoc={srcDoc}
-            title="output"
-            sandbox="allow-scripts"
-            frameBorder="0"
-            width="100%"
-            height="100%"
-          />
-        </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/MissionMars" component={MissionMars} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/Signup" component={Signup}/>
+          <Route exact path="/CodeEditor" component={CodeEditor}/>
+        </Switch>
       </div>
-    </div>
+    </Router>
   )
 }
 export default App;

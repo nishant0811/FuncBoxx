@@ -5,11 +5,12 @@ import App from './components/App';
 import MissionMars from './components/missionMars/MissionMars';
 import Login from './components/LoginAndSignup/Login';
 import Signup from './components/LoginAndSignup/Signup';
+import CodeEditor from './components/CodeEditor/CodeEditor';
 import {
   BrowserRouter as Router,
-  // Switch,
+  Switch,
   Route,
-  // Link
+  Link
 } from "react-router-dom";
 // import $ from 'jquery';
 // let headers = new Headers();
@@ -46,6 +47,9 @@ ReactDOM.render(
       </Route>
       <Route path="/Signup">
         <Signup />
+      </Route>
+      <Route path="/CodeEditor">
+        <CodeEditor />
       </Route>
     </Router>
   </React.StrictMode>,
