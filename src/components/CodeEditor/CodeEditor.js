@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Editor from '../Editor'
+import Frame from '../Frame/Frame'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import Navbar from '../Navbar/Navbar'
+import './CodeEditor.css'
 
 export default function CodeEditor() {
     const [js, setJs] = useLocalStorage('js', '')
@@ -37,15 +39,18 @@ export default function CodeEditor() {
                     value={js}
                     onChange={setJs}
                 />
-                <div class='phone'>
-                <iframe
-                    srcDoc={srcDoc}
-                    title="output"
-                    sandbox="allow-scripts"
-                    frameBorder="0"
-                    width="100%"
-                    height="100%"
-                />
+                <div className="frame_container">
+                    <div className='phone'>
+                        <Frame srcDoc={srcDoc}/>
+                        {/* <iframe
+                            srcDoc={srcDoc}
+                            title="output"
+                            sandbox="allow-scripts"
+                            frameBorder="0"
+                            width="100%"
+                            height="100%"
+                        /> */}
+                    </div>
                 </div>
             </div>
         </div>

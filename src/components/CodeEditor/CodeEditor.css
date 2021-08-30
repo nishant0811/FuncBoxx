@@ -1,0 +1,33 @@
+.top-pane {
+  background-color: white;
+}
+.compile-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.compile-button:active,
+.compile-button:focus {
+  outline: 0;
+  border: 0;
+}
+
+.frame_container {
+  position: absolute;
+  top: 25%;
+  left: 65%;
+  width: 360px;
+  height: 515px;
+  background-image: url(../../assets/ipad.svg);
+}
+
+.phone {
+  width: 312px;
+  height: 415px;
+  margin: auto;
+  position: relative;
+  top: 9.5%;
+}
