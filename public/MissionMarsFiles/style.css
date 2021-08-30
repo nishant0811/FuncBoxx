@@ -2,8 +2,10 @@
   box-sizing: border-box;
 }
 .GamePad {
-  width: 380px;
-  height: 500px;
+  position: absolute;
+  margin: 10px 0 0 0;
+  width: 225px;
+  height: 460px;
   border: solid black 1px;
 }
 .grid {

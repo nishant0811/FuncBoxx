@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './assets/css/Navbar.css'
 import App from './components/App';
 import MissionMars from './components/missionMars/MissionMars';
+import Login from './components/LoginAndSignup/Login';
+import Signup from './components/LoginAndSignup/Signup';
 import {
   BrowserRouter as Router,
   // Switch,
@@ -39,6 +40,12 @@ ReactDOM.render(
       </Route>
       <Route path="/MissionMars">
         <MissionMars />
+      </Route>
+      <Route path="/Login">
+        <Login />
+      </Route>
+      <Route path="/Signup">
+        <Signup />
       </Route>
     </Router>
   </React.StrictMode>,

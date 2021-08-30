@@ -1,4 +1,18 @@
+// Frontend Functions
 
+function createGamepad() {
+    let gamePad = document.createElement('div')
+    
+    // gamePad.style.width = "380px";
+    // gamePad.style.height = "500px";
+    // gamePad.style.border = "solid black 1px";
+    gamePad.classList.add('GamePad')
+
+    document.body.appendChild(gamePad);
+
+    return gamePad;
+    
+}
 
 // Backend Functions
 

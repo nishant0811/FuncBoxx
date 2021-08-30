@@ -1,27 +1,53 @@
 import React from 'react'
-import Navbar from '../assets/css/Navbar.css'
-export default function nav() {
+import {
+  Link,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import '../components/Navbar.css'
+
+import about from './assets/about.svg'
+import home from './assets/home.svg'
+import logo from './assets/logo.svg'
+import login from './assets/login.svg'
+import shop from './assets/shop.svg'
+
+export default function Navbar() {
     return (
-            <>
-            <header class="header">
-            <nav class="navbar">
-            <section class="logo">
-                <a href="https://apple.com"><img src="https://img.icons8.com/ios-glyphs/30/000000/mac-os--v4.png"/></a>
+        <div>
+            <section>
+                <div className="navbar">
+                <img src={logo} alt="logo" className="logo" />
+                <div className="options">
+                    <div className="option">
+                    <a href="#">
+                        <img src={home} alt="home" />
+                        <p>Home</p>
+                    </a>
+                    </div>
+                    <div className="option">
+                    <a href="#">
+                        <img src={about} alt="about" />
+                        <p>About</p>
+                    </a>
+                    </div>
+                    <div className="option">
+                    <a href="#">
+                        <img src={shop} alt="shop" />
+                        <p>Shop</p>
+                    </a>
+                    </div>
+                    <div className="option active">
+                    <a href="#">
+                        <img src={login} alt="login" /><br />
+                        <Link to="/Login">Login/Sign UP</Link>
+                    </a>
+                    </div>
+                </div>
+                </div>
             </section>
-            <input type="checkbox" class="toggler"/>  
-            <div class="hamburger"><div></div></div>
-            <div class="menu">
-                <ul class="nav_list">
-                <li><a href="https://www.apple.com/eg/mac/">Mac</a></li>
-                <li><a href="https://www.apple.com/eg/ipad/">iPad</a></li>
-                <li><a href="https://www.apple.com/eg/iphone/">iPhone</a></li>
-                <li><a href="https://www.apple.com/eg/tv/">TV</a></li>
-                <li><a href="https://www.apple.com/eg/music/">Music</a></li>
-                <li><a href="https://support.apple.com/en-eg/">Support</a></li>
-                </ul>
-            </div>
-            </nav>
-        </header>
-            </>
+        </div>
     )
 }

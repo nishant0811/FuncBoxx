@@ -13,7 +13,7 @@ const MissionMars = () => {
             <head>
             <title></title>
             <link rel="stylesheet" href="dyteapp/sstyles.css">
-            <link rel="stylesheet" href="dyteapp/MissionMarsFiles/styles.css">
+            <link rel="stylesheet" href="dyteapp/MissionMarsFiles/style.css">
             </head>
             <body>
             <div id="main__body">

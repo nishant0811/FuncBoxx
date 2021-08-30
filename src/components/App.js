@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Editor from './Editor'
 import useLocalStorage from '../hooks/useLocalStorage'
 // import space from '../components/spaceship.png'
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
 function App() {
   const [js, setJs] = useLocalStorage('js', '')
   const [srcDoc, setSrcDoc] = useState('')
