@@ -7,9 +7,10 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import './style.css'
-import Navbar from '../Navbar/Navbar'
-import bg from './assets/loginBg.svg'
+import './style.css';
+import Navbar from '../Navbar/Navbar';
+import bg from './assets/loginBg.svg';
+import card from './assets/marvelCard.svg';
 
 export default function Signup() {
     
@@ -74,13 +75,13 @@ export default function Signup() {
                 <div style={{backgroundImage: `url(${bg})`}} className="circular__carosel">
                 <div className="car-wrapper">
                     <ul className="carousel">
-                    <li className="item active"><img src="https://www.gettyimages.es/gi-resources/images/500px/983794168.jpg" /></li>
-                    <li className="item point1"><img src="https://eltitular.do/et/wp-content/uploads/2018/03/myanmar.jpg" /></li>
-                    <li className="item point2"><img src="https://www.gettyimages.es/gi-resources/images/500px/983794168.jpg" /></li>
-                    <li className="item point3"><img src="https://eltitular.do/et/wp-content/uploads/2018/03/myanmar.jpg" /></li>
-                    <li className="item point4"><img src="https://eltitular.do/et/wp-content/uploads/2018/03/myanmar.jpg" /></li>
-                    <li className="item point5"><img src="https://eltitular.do/et/wp-content/uploads/2018/03/myanmar.jpg" /></li>
-                    <li className="item point6"><img src="https://eltitular.do/et/wp-content/uploads/2018/03/myanmar.jpg" /></li>
+                        <li className="item active"><img src={card} /></li>
+                        <li className="item point1"><img src={card} /></li>
+                        <li className="item point2"><img src={card} /></li>
+                        <li className="item point3"><img src={card} /></li>
+                        <li className="item point4"><img src={card} /></li>
+                        <li className="item point5"><img src={card} /></li>
+                        <li className="item point6"><img src={card} /></li>
                     </ul>
                 </div>
                 </div>
