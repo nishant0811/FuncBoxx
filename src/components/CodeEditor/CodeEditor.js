@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Editor from '../Editor'
+import Editor from '../Editor/Editor'
 import Frame from '../Frame/Frame'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import Navbar from '../Navbar/Navbar'
@@ -42,14 +42,6 @@ export default function CodeEditor() {
                 <div className="frame_container">
                     <div className='phone'>
                         <Frame srcDoc={srcDoc}/>
-                        {/* <iframe
-                            srcDoc={srcDoc}
-                            title="output"
-                            sandbox="allow-scripts"
-                            frameBorder="0"
-                            width="100%"
-                            height="100%"
-                        /> */}
                     </div>
                 </div>
             </div>
