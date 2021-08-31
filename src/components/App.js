@@ -14,7 +14,7 @@ import CodeEditor from '../components/CodeEditor/CodeEditor';
 import FuncBoxx from './FuncBoxx/FuncBoxx';
 
 function App() {
-  
+
   return (
     <Router>
       <div className="App">

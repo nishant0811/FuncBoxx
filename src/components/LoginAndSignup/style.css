@@ -10,11 +10,11 @@
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) 1fr;
   background: #edeeef;
-  min-height: 85vh;
+  min-height: 89vh;
 }
 
 .circular__carosel {
-  background: no-repeat center center;
+  background: no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
