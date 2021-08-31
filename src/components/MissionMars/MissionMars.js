@@ -15,7 +15,7 @@ const MissionMars = () => {
 
             <head>
                 <title>MarsRover Game</title>
-                <link rel="stylesheet" href="./MissionMars.css">
+                <link rel="stylesheet" href="FuncBoxx/MissionMarsFiles/style.css">
             </head>
 
             <body>
@@ -27,10 +27,10 @@ const MissionMars = () => {
                     <button class="movementButton" id="leftButton">left</button>
                     <button class="movementButton" id="rightButton">right</button>
                     <button class="Scan movementButton" onclick="ScanObject()" disabled>scan</button>
-                    <img src="Rover.svg" alt="roverImg" id="rover" class="roverImg">
+                    <img src="FuncBoxx/MissionMarsFiles/Rover.svg" alt="roverImg" id="rover" class="roverImg">
                 </div>
                 <script>${ js }</script>
-                <script src='./MissionMars.js'></script>
+                <script src='FuncBoxx/MissionMarsFiles/scripts.js'></script>
             </body>
 
             </html>

@@ -17,16 +17,18 @@
 
 .frame_container {
   position: absolute;
-  top: 25%;
-  left: 65%;
-  width: 360px;
-  height: 515px;
+  top: 17%;
+  left: 60%;
+  width: 462.62px;
+  height: 579.83px;
   background-image: url(../../assets/ipad.svg);
+  padding: 0;
+  /* border: 1px solid black; */
 }
 
 .phone {
-  width: 312px;
-  height: 415px;
+  width: 400px;
+  height: 467px;
   margin: auto;
   position: relative;
   top: 9.5%;
