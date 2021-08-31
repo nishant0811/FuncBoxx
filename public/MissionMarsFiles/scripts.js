@@ -16,58 +16,121 @@ function createGamepad() {
 
 // Backend Functions
 
-
 const grid = document.querySelector('.grid');
+const rover = document.getElementById('rover');
+let topPos = 333;
+let leftPos = 300;
+let currentDirection = 'up';
 let time;
 
-for( i = 0; i < 225; i++ ) {
+for( i = 0; i < 36; i++ ) {
     const square = document.createElement('div')
     grid.appendChild(square)
 }
 
+function randomUniqueNum(range, outputCount) {
 
-const rockArray = []
-for( i = 0 ; i < 10 ; i++ ) {
-    rockArray.push(Math.floor(Math.random() * 150) + 5)
+  let arr = []
+  for (let i = 1; i <= range; i++) {
+    arr.push(i)
+  }
+
+  let result = [];
+
+  for (let i = 1; i <= outputCount; i++) {
+    const random = Math.floor(Math.random() * (range - i));
+    result.push(arr[random]);
+    arr[random] = arr[range - i];
+  }
+
+  return result;
 }
-// console.log(rockArray);
+
+const rockArray = randomUniqueNum(30,10)
 
 const squares = Array.from(document.querySelectorAll('.grid div'))
 
 const ScanButton = document.querySelector('.Scan')
 var movementButtons = document.getElementsByClassName('movementButton')
 
-const elements = ["rocks","dust","dirt"]
+const elements = ["goodrocks","badrocks","wasterocks1","wasterocks2"]
 
-var rocks = 0
+var goodrocks = 0
+var badrocks = 0
 
 function draw() {
     for( i = 0 ; i < rockArray.length ; i++ ) {
-        if(i < 6) {
+        if(i < 3) {
+            squares[rockArray[i]].classList.add('goodrocks')
             squares[rockArray[i]].classList.add('rocks')
-            rocks++
+            goodrocks++
+        }
+        else if ( i >= 3 && i < 6) {
+            squares[rockArray[i]].classList.add('badrocks')
+            squares[rockArray[i]].classList.add('rocks')
+            badrocks++
         }
         else {
-            squares[rockArray[i]].classList.add(elements[Math.floor(Math.random() * 2) + 1])
+            squares[rockArray[i]].classList.add(elements[Math.floor(Math.random() * 2) + 2])
         }
     }
 }
-
 draw()
 
-currentRoverPosition = 202
-squares[currentRoverPosition].classList.add('rover')
+
+currentRoverPosition = 35
+const roverDiv = document.createElement("div")
+roverDiv.classList.add('rover')
+
+squares[currentRoverPosition].appendChild(roverDiv)
+
+
+function changeDirection(direction){
+  if(direction != currentDirection){
+    rover.classList.remove('upRotate')
+    rover.classList.remove('downRotate')
+    rover.classList.remove('rightRotate')
+    rover.classList.remove('leftRotate')
+    switch (direction) {
+      case 'up':
+        currentDirection = 'up'
+        rover.classList.add('upRotate')
+        break;
+        case 'down' :
+          currentDirection = 'down'
+          rover.classList.add('downRotate')
+          break;
+
+          case 'left' :
+          currentDirection = 'left'
+          rover.classList.add('leftRotate')
+          break;
+
+          case 'right' :
+          currentDirection = 'right'
+          rover.classList.add('rightRotate');
+          break;
+    }
+  }
+}
+
+function updatePosition(top , left){
+  rover.style.top = top+'px';
+  rover.style.left = left+'px';
+}
+
 
 function MoveUp() {
-    if( currentRoverPosition > 14 ) {
-        squares[currentRoverPosition].classList.remove('upRotate')
-        squares[currentRoverPosition].classList.remove('downRotate')
-        squares[currentRoverPosition].classList.remove('rightRotate')
-        squares[currentRoverPosition].classList.remove('leftRotate')
-        squares[currentRoverPosition].classList.remove('rover')
-        currentRoverPosition = currentRoverPosition - 15
-        squares[currentRoverPosition].classList.add('rover')
-        squares[currentRoverPosition].classList.add('upRotate')
+    if( currentRoverPosition > 5 ) {
+
+        topPos -= 51;
+        updatePosition(topPos , leftPos);
+        changeDirection('up')
+        currentRoverPosition = currentRoverPosition - 6
+
+        roverDiv.classList.add('rover')
+
+        squares[currentRoverPosition].appendChild(roverDiv)
 
         if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
             ScanButton.disabled = false
@@ -76,23 +139,23 @@ function MoveUp() {
             ScanButton.disabled = true
         }
     }
-
-    else {
-        // alert("error")
+    else{
+    //   alert("Up Error");
     }
 }
+
 
 function MoveDown() {
 
-    if( currentRoverPosition < 210 ) {
-        squares[currentRoverPosition].classList.remove('upRotate')
-        squares[currentRoverPosition].classList.remove('downRotate')
-        squares[currentRoverPosition].classList.remove('rightRotate')
-        squares[currentRoverPosition].classList.remove('leftRotate')
-        squares[currentRoverPosition].classList.remove('rover')
-        currentRoverPosition = currentRoverPosition + 15
-        squares[currentRoverPosition].classList.add('rover')
-        squares[currentRoverPosition].classList.add('downRotate')
+    if( currentRoverPosition < 30 ) {
+      topPos += 51;
+      updatePosition(topPos , leftPos);
+      changeDirection('down')
+        currentRoverPosition = currentRoverPosition + 6
+
+        roverDiv.classList.add('rover')
+
+        squares[currentRoverPosition].appendChild(roverDiv)
 
         if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
             ScanButton.disabled = false
@@ -101,50 +164,72 @@ function MoveDown() {
             ScanButton.disabled = true
         }
     }
-
-    else {
-        // alert("error")
+    else{
+    //   alert("Down Error");
     }
 }
 
 function MoveLeft() {
-    squares[currentRoverPosition].classList.remove('upRotate')
-    squares[currentRoverPosition].classList.remove('downRotate')
-    squares[currentRoverPosition].classList.remove('rightRotate')
-    squares[currentRoverPosition].classList.remove('leftRotate')
-    squares[currentRoverPosition].classList.remove('rover')
-    currentRoverPosition = currentRoverPosition - 1
-    squares[currentRoverPosition].classList.add('rover')
-    squares[currentRoverPosition].classList.add('leftRotate')
+    if( currentRoverPosition > 0 ) {
 
-    if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
-        ScanButton.disabled = false
+      leftPos -= 50;
+      if(leftPos < 43.6){
+        leftPos +=50;
+        currentRoverPosition +=1;  
+      }
+      updatePosition(topPos , leftPos);
+      changeDirection('left')
+      currentRoverPosition = currentRoverPosition - 1
+
+      roverDiv.classList.add('rover')
+
+      squares[currentRoverPosition].appendChild(roverDiv)
+
+      if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
+          ScanButton.disabled = false
+      }
+      else {
+          ScanButton.disabled = true
+      }
     }
-    else {
-        ScanButton.disabled = true
+    else{
+      alert("Left Error");
     }
 }
 
 function MoveRight() {
-    squares[currentRoverPosition].classList.remove('upRotate')
-    squares[currentRoverPosition].classList.remove('downRotate')
-    squares[currentRoverPosition].classList.remove('rightRotate')
-    squares[currentRoverPosition].classList.remove('leftRotate')
-    squares[currentRoverPosition].classList.remove('rover')
-    currentRoverPosition = currentRoverPosition + 1
-    squares[currentRoverPosition].classList.add('rover')
-    squares[currentRoverPosition].classList.add('rightRotate')
+    if( currentRoverPosition < 36 ) {
 
-    if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
-        ScanButton.disabled = false
+      leftPos += 50;
+      if(leftPos > 326.4){
+        leftPos -=50;
+        currentRoverPosition -=1;
+      }
+      updatePosition(topPos , leftPos);
+      changeDirection('right')
+      currentRoverPosition = currentRoverPosition + 1
+
+      roverDiv.classList.add('rover')
+
+      squares[currentRoverPosition].appendChild(roverDiv)
+
+      if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
+          ScanButton.disabled = false
+      }
+      else {
+          ScanButton.disabled = true
+      }
     }
-    else {
-        ScanButton.disabled = true
+    else{
+      alert("Right Error");
     }
 }
 
+
+
 const scoreDisplay = document.querySelector("#score")
 var Score = 0
+var goodrocksScanned = 0
 
 function ScanObject() {
 
@@ -153,7 +238,7 @@ function ScanObject() {
     downButton.disabled = true;
     leftButton.disabled = true;
     rightButton.disabled = true;
-
+    ScanButton.disabled = true
     setTimeout(()=>{
     squares[currentRoverPosition].classList.remove('scanning')
     squares[currentRoverPosition].classList.add('scanned')
@@ -161,11 +246,23 @@ function ScanObject() {
     downButton.disabled = false;
     leftButton.disabled = false;
     rightButton.disabled = false;
-    Score++;
+    // Score++;
+    if( squares[currentRoverPosition].classList.contains('goodrocks') ) {
+      Score++;
+      goodrocksScanned++;
+    }
+    else if ( squares[currentRoverPosition].classList.contains('badrocks') ) {
+      Score--;
+    }
     ScanButton.disabled = true
     scoreDisplay.innerHTML = 'Score: '+ Score
-    if(Score == rocks ) {
-        scoreDisplay.innerHTML = 'Winner!'
+    if(goodrocksScanned == goodrocks ) {
+        if( Score == goodrocks ) {
+          scoreDisplay.innerHTML = 'Perfect Win! Score: '+ Score + '/' + goodrocks
+        }
+        else {
+          scoreDisplay.innerHTML = 'Game Over! Score: '+ Score + '/' + goodrocks
+        }
         ScanButton.disabled = true
         for(var i = 0; i < movementButtons.length; i++) {
             movementButtons[i].disabled = true;
@@ -174,6 +271,7 @@ function ScanObject() {
   },3000)
 
 }
+
 
 //Calling Movement function
 
@@ -228,3 +326,4 @@ rightButton.addEventListener("mousedown",()=>{
 rightButton.addEventListener("mouseup",()=>{
   clearInterval(time);
 })
+

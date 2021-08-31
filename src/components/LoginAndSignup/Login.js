@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Link,
   BrowserRouter as Router,
@@ -7,12 +7,15 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import $ from 'jquery'
 import './style.css'
 import Navbar from '../Navbar/Navbar';
 import bg from './assets/loginBg.svg';
 import card from './assets/marvelCard.svg';
 
 export default function Login() {
+
+    
 
     let cardPosion = [0 , 1 , 2 , 3 , 4 , 5 , 6];
     let images = document.getElementsByClassName('item');
@@ -41,10 +44,9 @@ export default function Login() {
     }
 
 
-    setInterval(()=>{
-    next()
-    },2500);
-
+    // setInterval(()=>{
+    // next()
+    // },2500);
 
 
     const [details, setDetails] = useState({
@@ -63,6 +65,14 @@ export default function Login() {
         e.preventDefault();
         console.log(details)
     };
+
+    useEffect(() => {
+        const interval = setInterval(()=>{
+        next()
+        },2500);
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <div>

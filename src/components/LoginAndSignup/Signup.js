@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Link,
   BrowserRouter as Router,
@@ -42,9 +42,9 @@ export default function Signup() {
     }
 
 
-    setInterval(()=>{
-    next()
-    },2500);
+    // setInterval(()=>{
+    // next()
+    // },2500);
 
 
     const [details, setDetails] = useState({
@@ -67,6 +67,12 @@ export default function Signup() {
         console.log(details)
     };
 
+    useEffect(() => {
+        const interval = setInterval(()=>{
+        next()
+        },2500);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div>

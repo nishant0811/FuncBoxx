@@ -10,20 +10,29 @@ const MissionMars = () => {
 
     function updateCode(){
         setSrcDoc(`
+            <!DOCTYPE html>
             <html>
-            <head>
-            <title></title>
-            <link rel="stylesheet" href="FuncBoxx/sstyles.css">
-            <link rel="stylesheet" href="FuncBoxx/MissionMarsFiles/style.css">
-            </head>
-            <body>
-            <div id="main__body">
 
-            </div>
-            <script src="FuncBoxx/MissionMarsFiles/scripts.js"></script>
-            <script src="FuncBoxx/scripts.js"></script>
-            <script>${js}</script>
+            <head>
+                <title>MarsRover Game</title>
+                <link rel="stylesheet" href="./MissionMars.css">
+            </head>
+
+            <body>
+                <div class="GamePad">
+                    <h3 id="score">Start</h3>
+                    <div class="grid"></div><br>
+                    <button class="movementButton" id="upButton">up</button>
+                    <button class="movementButton" id="downButton">down</button>
+                    <button class="movementButton" id="leftButton">left</button>
+                    <button class="movementButton" id="rightButton">right</button>
+                    <button class="Scan movementButton" onclick="ScanObject()" disabled>scan</button>
+                    <img src="Rover.svg" alt="roverImg" id="rover" class="roverImg">
+                </div>
+                <script>${ js }</script>
+                <script src='./MissionMars.js'></script>
             </body>
+
             </html>
         `)
     }
