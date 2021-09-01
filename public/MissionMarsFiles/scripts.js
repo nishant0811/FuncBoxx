@@ -105,7 +105,7 @@ function createInteractionPad(){
 
 }
 
-function createRestart(){
+function createRestartButton(){
   cc = document.getElementById('cc');
   restartBtn = document.createElement('button');
   restartBtn.innerHTML = "Restart";
@@ -116,7 +116,7 @@ function createRestart(){
     refreshPage();
   });
 
-  cc.appendChild(restartBtn);
+  document.body.appendChild(restartBtn);
 }
 
 //

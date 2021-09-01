@@ -142,6 +142,9 @@ body {
 
 .restartBtn {
   background-color: #5e7622;
+  position: absolute;
+  top: 87%;
+  left: 40%;
 
   color: white;
   border-radius: 16px;
