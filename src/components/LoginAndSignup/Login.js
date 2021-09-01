@@ -11,11 +11,16 @@ import $ from 'jquery'
 import './style.css'
 import Navbar from '../Navbar/Navbar';
 import bg from './assets/loginBg.svg';
-import card from './assets/marvelCard.svg';
+import card1 from './assets/marvelCard.svg';
+import card2 from './assets/card2.svg';
+import card3 from './assets/card3.svg';
+import card4 from './assets/card4.svg';
+import card5 from './assets/card5.svg';
+import card6 from './assets/card6.svg';
 
 export default function Login() {
 
-    
+
 
     let cardPosion = [0 , 1 , 2 , 3 , 4 , 5 , 6];
     let images = document.getElementsByClassName('item');
@@ -81,13 +86,13 @@ export default function Login() {
                 <div style={{backgroundImage: `url(${bg})`}} className="circular__carosel">
                     <div className="car-wrapper">
                     <ul className="carousel">
-                        <li className="item active"><img src={card} /></li>
-                        <li className="item point1"><img src={card} /></li>
-                        <li className="item point2"><img src={card} /></li>
-                        <li className="item point3"><img src={card} /></li>
-                        <li className="item point4"><img src={card} /></li>
-                        <li className="item point5"><img src={card} /></li>
-                        <li className="item point6"><img src={card} /></li>
+                        <li className="item active"><img src={card1} /></li>
+                        <li className="item point1"><img src={card2} /></li>
+                        <li className="item point2"><img src={card3} /></li>
+                        <li className="item point3"><img src={card4} /></li>
+                        <li className="item point4"><img src={card5} /></li>
+                        <li className="item point5"><img src={card6} /></li>
+                        <li className="item point6"><img src={card4} /></li>
                     </ul>
                     </div>
                 </div>
