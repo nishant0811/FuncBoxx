@@ -93,6 +93,14 @@ function createInteractionPad(){
 
   ScanButton = document.querySelector('.Scan');
   addMovementLogic();
+
+  scoreDisplay = document.getElementById('score');
+  squares = Array.from(document.querySelectorAll('.grid div'));
+  roverDiv = document.createElement("div")
+  roverDiv.classList.add(roverImg)
+  squares[currentRoverPosition].innerHTML = '';
+  squares[currentRoverPosition].appendChild(roverDiv);
+
 }
 
 
@@ -125,8 +133,7 @@ function MoveUp() {
         currentRoverPosition = currentRoverPosition - 6
 
         roverDiv.classList.add('rover')
-        console.log(currentRoverPosition);
-        squares[currentRoverPosition].appendChild(roverDiv)
+        document.querySelectorAll('.grid div')[currentRoverPosition].appendChild(roverDiv)
 
         if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
             ScanButton.disabled = false
@@ -144,6 +151,7 @@ function MoveUp() {
 
 //
 function MoveDown() {
+
 
     if( currentRoverPosition < 30 ) {
 
@@ -218,9 +226,10 @@ function MoveRight() {
 
 //
 function ScanObject() {
-    scoreDisplay.innerHTML = '3'
-    console.log(scoreDisplay.innerHTML);
-    squares[currentRoverPosition].classList.add('scanning')
+    let squares = document.querySelectorAll('.grid div');
+    let scoreDisplay = document.getElementById('score');
+
+    document.querySelectorAll('.grid div')[currentRoverPosition].classList.add('scanning')
     // upButton.disabled = true;
     // downButton.disabled = true;
     // leftButton.disabled = true;
@@ -229,8 +238,8 @@ function ScanObject() {
     ScanButton.classList.remove('active')
     document.getElementById('cc').classList.toggle('active')
     setTimeout(()=>{
-    squares[currentRoverPosition].classList.remove('scanning')
-    squares[currentRoverPosition].classList.add('scanned')
+    document.querySelectorAll('.grid div')[currentRoverPosition].classList.remove('scanning')
+    document.querySelectorAll('.grid div')[currentRoverPosition].classList.add('scanned')
       document.getElementById('cc').classList.toggle('active')
     // upButton.disabled = false;
     // downButton.disabled = false;
