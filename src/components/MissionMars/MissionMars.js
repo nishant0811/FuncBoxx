@@ -14,26 +14,36 @@ const MissionMars = () => {
             <html>
 
             <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <title>MarsRover Game</title>
                 <link rel="stylesheet" href="FuncBoxx/MissionMarsFiles/style.css">
             </head>
 
             <body>
                 <div class="GamePad">
-                    <h3 id="score">Start</h3>
+                    <h3 id="score" Class="score">Start</h3>
                     <div class="grid"></div><br>
-                    <button class="movementButton" id="upButton">up</button>
-                    <button class="movementButton" id="downButton">down</button>
-                    <button class="movementButton" id="leftButton">left</button>
-                    <button class="movementButton" id="rightButton">right</button>
-                    <button class="Scan movementButton" onclick="ScanObject()" disabled>scan</button>
-                    <img src="FuncBoxx/MissionMarsFiles/Rover.svg" alt="roverImg" id="rover" class="roverImg">
+                    <div class="controller-container" id='cc'>
+                    <div class="arrow-keys">
+                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/up.svg' id="upButton"></img>
+                        <div class="left-right">
+                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/left.svg' id="leftButton"></img>
+                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/right.svg' id="rightButton"></img>
+                        </div>
+                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/down.svg' id="downButton"></img>
+                    </div>
+                    <button class="Scan" onclick="ScanObject()" disabled>Scan</button>
+                </div>
+
                 </div>
                 <script>${ js }</script>
                 <script src='FuncBoxx/MissionMarsFiles/scripts.js'></script>
             </body>
 
             </html>
+
         `)
     }
 

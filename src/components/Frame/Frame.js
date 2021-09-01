@@ -19,7 +19,7 @@ export default function Frame( props ) {
                 sandbox="allow-scripts"
                 frameBorder="0"
                 width="100%"
-                height="416px"
+                height="470px"
             />
         </div>
     )

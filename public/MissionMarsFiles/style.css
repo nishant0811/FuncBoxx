@@ -1,31 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
 .GamePad {
-  width: 380px;
-  height: 500px;
-  border: solid black 1px;
+  width: 317px;
+  height: 415px;
+  /* border: solid black 1px; */
+  margin: auto;
+  position: relative;
+  background-image: url('../MissionMarsFiles/assets/Frame.png');
+  background-position: center;
+  background-size: cover;
+  margin-top: 128px;
+  padding-top: 1px;
+  /* background: red; */
 }
+
+.score {
+  margin: 2px;
+  padding: 4px;
+  border-radius: 0 22px 22px 0;
+  background: white;
+  min-width: 40%;
+  font-weight: 500;
+  display: inline-block;
+}
+
 .grid {
-  height: 320px;
-  width: 315px;
-  border: solid black 1px;
-  display: flex;
-  flex-wrap: wrap;
+  height: 300px;
+  /* border: solid black 1px; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-rows: repeat(5,1fr); */
   box-sizing: border-box;
   padding: 5px;
   margin: auto;
   position: relative;
-  background-image: url('Frame.png');
-  z-index: -1;
+
+  z-index: 2;
 }
 
 .grid div {
-  height: 50px;
-  width: 50px;
   box-sizing: border-box;
   margin: 0;
-  /* border: 1px solid black; */
+  /* border : 1px solid */
 }
 
 .rocks {
@@ -33,23 +54,26 @@
 }
 
 .goodrocks {
-  background: url('GoodRock.svg') no-repeat center;
+  background: url('../MissionMarsFiles/assets/GoodRock.svg') no-repeat center;
 }
 
 .badrocks {
-  background: url('BadRock.svg') no-repeat center;
+  background: url('../MissionMarsFiles/assets/BadRock.svg') no-repeat center;
 }
 
 .wasterocks1 {
-  background: url('WasteRock-2.svg') no-repeat center;
+  background: url('../MissionMarsFiles/assets/WasteRock-2.svg') no-repeat center;
 }
 
 .wasterocks2 {
-  background: url('WasteRock-1.svg') no-repeat center;
+  background: url('../MissionMarsFiles/assets/WasteRock-1.svg') no-repeat center;
 }
 
 .rover {
-  /* background: url('arrow.svg') no-repeat center; */
+  background: url('../MissionMarsFiles/assets/Rover.svg') no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100%;
 }
 
 .up {
@@ -70,7 +94,51 @@
   animation-iteration-count: infinite;
 }
 
-.upRotate {
+.controller-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.controller-container.active {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.arrow-keys {
+  text-align: center;
+  margin-top: -24px;
+}
+
+.arrow-keys img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.Scan {
+  margin-top: -24px;
+  background: #46124f;
+
+  color: white;
+  border-radius: 16px;
+  border: 3px solid white;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.Scan:active,
+.Scan:focus {
+  outline: 0;
+}
+
+.Scan.active {
+  background: #832394;
+  cursor: pointer;
+}
+
+/* .upRotate {
   transform: rotate(0deg);
 }
 
@@ -88,11 +156,13 @@
 
 .roverImg {
   position: absolute;
-  left: 218px;
-  top: 333px;
-  width: 45px;
+  left: 290px;
+  top: 408px;
+  width: 40px;
   transition: 0.5s;
-}
+  z-index: 4;
+  opacity: 0;
+} */
 
 /* 72
 45
