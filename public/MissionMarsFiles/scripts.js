@@ -1,29 +1,105 @@
 // Frontend Functions
 
+let gamePad,elements, squares , goodrocks = 0 , badrocks = 0 , currentRoverPosition = 35;
+let roverDiv , roverImg = 'rover', Score = 0 , time;
+var goodrocksScanned = 0;
+
+
 function createGamepad() {
-    let gamePad = document.createElement('div')
-    
-    // gamePad.style.width = "380px";
-    // gamePad.style.height = "500px";
-    // gamePad.style.border = "solid black 1px";
-    gamePad.classList.add('GamePad')
+    let gamePadd = document.createElement('DIV')
+    gamePadd.classList.add('GamePad')
+    gamePadd.id = 'GamePad'
+    document.body.appendChild(gamePadd);
+    gamePad = document.getElementById('GamePad')
+    // return gamePad;
 
-    document.body.appendChild(gamePad);
-
-    return gamePad;
-    
 }
 
-// Backend Functions
-const grid = document.querySelector('.grid');
-const rover = document.getElementById('rover');
-let currentDirection = 'up';
-let time;
+function fill(background) {
+  document.getElementsByClassName('GamePad')[0].style.backgroundImage =  'url(FuncBoxx/MissionMarsFiles/assets/backgrounds/Frame.png)';
+}
 
-for( i = 0; i < 30; i++ ) {
+function createElement(elementss){
+  elements = elementss;
+}
+
+
+function createScore(){
+  let he = document.createElement('h3');
+  he.id = 'score';
+  he.classList.add('score');
+  he.innerHTML = 'Start'
+  gamePad.appendChild(he)
+  scoreDisplay = document.getElementById('score')
+}
+
+function createGrid(){
+  gamePad.innerHTML += `<div class="grid"></div>`;
+}
+
+function createRover(roverr){
+  roverImg = roverr
+}
+
+
+function draw() {
+
+  const grid = document.querySelector('.grid');
+
+  for( i = 0; i < 36; i++ ) {
     const square = document.createElement('div')
     grid.appendChild(square)
+  }
+
+  let rockArray = randomUniqueNum(34,10)
+  squares = Array.from(document.querySelectorAll('.grid div'));
+  for( i = 0 ; i < rockArray.length ; i++ ) {
+    if(i < 4) {
+      squares[rockArray[i]].classList.add(elements[0])
+      squares[rockArray[i]].classList.add('rocks')
+      goodrocks++
+    }
+    else if ( i >= 4 && i < 7) {
+      squares[rockArray[i]].classList.add(elements[1])
+      squares[rockArray[i]].classList.add('rocks')
+      badrocks++
+    }
+    else {
+      squares[rockArray[i]].classList.add(elements[Math.floor(Math.random() * 2) + 2])
+    }
+  }
+  roverDiv = document.createElement("div")
+  roverDiv.classList.add(roverImg)
+
+  squares[currentRoverPosition].appendChild(roverDiv);
+
+
 }
+
+function createInteractionPad(){
+  gamePad.innerHTML += `
+  <div class="controller-container" id='cc'>
+    <div class="arrow-keys">
+      <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/up.svg' id="upButton"></img>
+      <div class="left-right">
+      <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/left.svg' id="leftButton"></img>
+      <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/right.svg' id="rightButton"></img>
+      </div>
+      <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/down.svg' id="downButton"></img>
+    </div>
+    <button class="Scan" onclick="ScanObject()" disabled>Scan</button>
+  </div>
+  `;
+
+  ScanButton = document.querySelector('.Scan');
+  addMovementLogic();
+}
+
+
+//
+// Backend Functions
+//
+//
 
 function randomUniqueNum(range, outputCount) {
 
@@ -43,86 +119,13 @@ function randomUniqueNum(range, outputCount) {
   return result;
 }
 
-const rockArray = randomUniqueNum(29,7)
-
-const squares = Array.from(document.querySelectorAll('.grid div'))
-
-const ScanButton = document.querySelector('.Scan')
-var movementButtons = document.getElementsByClassName('movementButton')
-
-const elements = ["goodrocks","badrocks","wasterocks1","wasterocks2"]
-
-var goodrocks = 0
-var badrocks = 0
-
-function draw() {
-    for( i = 0 ; i < rockArray.length ; i++ ) {
-        if(i < 3) {
-            squares[rockArray[i]].classList.add('goodrocks')
-            squares[rockArray[i]].classList.add('rocks')
-            goodrocks++
-        }
-        else if ( i >= 3 && i < 6) {
-            squares[rockArray[i]].classList.add('badrocks')
-            squares[rockArray[i]].classList.add('rocks')
-            badrocks++
-        }
-        else {
-            squares[rockArray[i]].classList.add(elements[Math.floor(Math.random() * 2) + 2])
-        }
-    }
-}
-draw()
-
-
-currentRoverPosition = 29
-const roverDiv = document.createElement("div")
-roverDiv.classList.add('rover')
-
-squares[currentRoverPosition].appendChild(roverDiv)
-
-
-// function changeDirection(direction){
-//   if(direction != currentDirection){
-//     rover.classList.remove('upRotate')
-//     rover.classList.remove('downRotate')
-//     rover.classList.remove('rightRotate')
-//     rover.classList.remove('leftRotate')
-//     switch (direction) {
-//       case 'up':
-//         currentDirection = 'up'
-//         rover.classList.add('upRotate')
-//         break;
-//         case 'down' :
-//           currentDirection = 'down'
-//           rover.classList.add('downRotate')
-//           break;
-//
-//           case 'left' :
-//           currentDirection = 'left'
-//           rover.classList.add('leftRotate')
-//           break;
-//
-//           case 'right' :
-//           currentDirection = 'right'
-//           rover.classList.add('rightRotate');
-//           break;
-//     }
-//   }
-// }
-//
-// function updatePosition(top , left){
-//   rover.style.top = top+'px';
-//   rover.style.left = left+'px';
-// }
-
 
 function MoveUp() {
-    if( currentRoverPosition > 4 ) {
-        currentRoverPosition = currentRoverPosition - 5
+    if( currentRoverPosition > 5 ) {
+        currentRoverPosition = currentRoverPosition - 6
 
         roverDiv.classList.add('rover')
-
+        console.log(currentRoverPosition);
         squares[currentRoverPosition].appendChild(roverDiv)
 
         if( squares[currentRoverPosition].classList.contains('rocks') && !squares[currentRoverPosition].classList.contains('scanned') ) {
@@ -131,7 +134,7 @@ function MoveUp() {
         }
         else {
             ScanButton.disabled = true
-              ScanButton.classList.remove('active')
+            ScanButton.classList.remove('active')
         }
     }
     else{
@@ -139,12 +142,12 @@ function MoveUp() {
     }
 }
 
-
+//
 function MoveDown() {
 
-    if( currentRoverPosition < 25 ) {
+    if( currentRoverPosition < 30 ) {
 
-        currentRoverPosition = currentRoverPosition + 5
+        currentRoverPosition = currentRoverPosition + 6
 
         roverDiv.classList.add('rover')
 
@@ -188,7 +191,7 @@ function MoveLeft() {
 }
 
 function MoveRight() {
-    if( currentRoverPosition < 29 ) {
+    if( currentRoverPosition < 35 ) {
 
       currentRoverPosition = currentRoverPosition + 1
 
@@ -211,13 +214,12 @@ function MoveRight() {
 }
 
 
+//
 
-const scoreDisplay = document.querySelector("#score")
-var Score = 0
-var goodrocksScanned = 0
-
+//
 function ScanObject() {
-
+    scoreDisplay.innerHTML = '3'
+    console.log(scoreDisplay.innerHTML);
     squares[currentRoverPosition].classList.add('scanning')
     // upButton.disabled = true;
     // downButton.disabled = true;
@@ -262,8 +264,12 @@ function ScanObject() {
 }
 
 
-//Calling Movement function
-
+//
+//
+// //Calling Movement function
+//
+//
+function addMovementLogic(){
 
 let upButton= document.getElementById('upButton');
 let downButton= document.getElementById('downButton');
@@ -315,3 +321,4 @@ rightButton.addEventListener("mousedown",()=>{
 rightButton.addEventListener("mouseup",()=>{
   clearInterval(time);
 })
+}

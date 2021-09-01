@@ -22,24 +22,9 @@ const MissionMars = () => {
             </head>
 
             <body>
-                <div class="GamePad">
-                    <h3 id="score" Class="score">Start</h3>
-                    <div class="grid"></div><br>
-                    <div class="controller-container" id='cc'>
-                    <div class="arrow-keys">
-                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/up.svg' id="upButton"></img>
-                        <div class="left-right">
-                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/left.svg' id="leftButton"></img>
-                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/right.svg' id="rightButton"></img>
-                        </div>
-                        <img class="movementButton" src='FuncBoxx/MissionMarsFiles/assets/buttons/down.svg' id="downButton"></img>
-                    </div>
-                    <button class="Scan" onclick="ScanObject()" disabled>Scan</button>
-                </div>
-
-                </div>
-                <script>${ js }</script>
+              
                 <script src='FuncBoxx/MissionMarsFiles/scripts.js'></script>
+                <script>${ js }</script>
             </body>
 
             </html>
