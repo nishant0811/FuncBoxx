@@ -33,6 +33,8 @@ function createScore(){
   scoreDisplay = document.getElementById('score')
 }
 
+
+
 function createGrid(){
   gamePad.innerHTML += `<div class="grid"></div>`;
 }
@@ -103,11 +105,28 @@ function createInteractionPad(){
 
 }
 
+function createRestart(){
+  cc = document.getElementById('cc');
+  restartBtn = document.createElement('button');
+  restartBtn.innerHTML = "Restart";
+  restartBtn.classList.add('restartBtn');
+
+  restartBtn.addEventListener("click", function(event){
+    event.preventDefault()
+    refreshPage();
+  });
+
+  cc.appendChild(restartBtn);
+}
 
 //
 // Backend Functions
 //
 //
+
+function refreshPage(){
+  window.location.reload();
+}
 
 function randomUniqueNum(range, outputCount) {
 
